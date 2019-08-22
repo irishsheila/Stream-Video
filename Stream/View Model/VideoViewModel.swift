@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct VideoViewModel {
+    
+    let name: String
+    let urlString: String
+    
+    init(video: Video){
+        self.name = video.name
+        self.urlString = video.urlString
+    }
+    
+}
