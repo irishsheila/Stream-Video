@@ -10,13 +10,14 @@ import Foundation
 import UIKit
 import AVKit
 
-class VideoDetailController: UIViewController {
+class VideoDetailController: AVPlayerViewController {
     
-    var video: VideoViewModel? {
-        didSet {
-            navigationItem.title = video?.name
-        }
-    }
+//    var video: VideoViewModel? {
+//        didSet {
+//            navigationItem.title = video?.name
+//            
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
