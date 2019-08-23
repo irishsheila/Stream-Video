@@ -13,6 +13,7 @@ class VideoTableViewController: UITableViewController {
     var videoViewModels = [VideoViewModel]()
     let cellId = "cellId"
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,23 +22,7 @@ class VideoTableViewController: UITableViewController {
         fetchData()
     }
     
-    fileprivate func fetchData(){
-        let videos = Service.shared.makeVideoArray()
-        self.videoViewModels = videos.map({return VideoViewModel(video: $0)})
-        self.tableView.reloadData()
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videoViewModels.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! VideoCell
-        let videoViewModel = videoViewModels[indexPath.row]
-        cell.videoViewModel = videoViewModel
-        return cell
-    }
-    
+    // MARK: - View Setup
     fileprivate func setupTableView() {
         tableView.register(VideoCell.self, forCellReuseIdentifier: cellId)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
@@ -56,9 +41,43 @@ class VideoTableViewController: UITableViewController {
         navigationController?.navigationBar.barTintColor = UIColor.rgb(r: 50, g: 199, b: 242)
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     }
+    
+    fileprivate func fetchData(){
+        let videos = Service.shared.makeVideoArray()
+        self.videoViewModels = videos.map({return VideoViewModel(video: $0)})
+        self.tableView.reloadData()
+    }
+    
+    //MARK: - TableView Methods
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return videoViewModels.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! VideoCell
+        let videoViewModel = videoViewModels[indexPath.row]
+        cell.videoViewModel = videoViewModel
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let video = videoViewModels[indexPath.row]
+        showVideoDetail(video: video)
+    }
+    
+    //MARK: - Segue to video detail
+    
+    func showVideoDetail(video: VideoViewModel){
+        let videoDetailController = VideoDetailController()
+        videoDetailController.video = video
+        navigationController?.pushViewController(videoDetailController, animated: true)
+        
+    }
+    
 }
 
 class CustomNavigationController: UINavigationController {
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

@@ -18,6 +18,7 @@
 		56217D5B230F4F2000927594 /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56217D5A230F4F2000927594 /* VideoTableViewController.swift */; };
 		56217D5E230F510000927594 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56217D5D230F510000927594 /* Service.swift */; };
 		56217D66230F5A6100927594 /* StreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56217D65230F5A6100927594 /* StreamTests.swift */; };
+		56217D6E23105AC500927594 /* VideoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56217D6D23105AC500927594 /* VideoDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		56217D63230F5A6100927594 /* StreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56217D65230F5A6100927594 /* StreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamTests.swift; sourceTree = "<group>"; };
 		56217D67230F5A6100927594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56217D6D23105AC500927594 /* VideoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				56217D5A230F4F2000927594 /* VideoTableViewController.swift */,
+				56217D6D23105AC500927594 /* VideoDetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				56217D5E230F510000927594 /* Service.swift in Sources */,
 				56217D5B230F4F2000927594 /* VideoTableViewController.swift in Sources */,
 				56217D56230F4E7300927594 /* VideoCell.swift in Sources */,
+				56217D6E23105AC500927594 /* VideoDetailController.swift in Sources */,
 				56217D53230F4E4300927594 /* Video.swift in Sources */,
 				56217D59230F4EA000927594 /* VideoViewModel.swift in Sources */,
 				56217D3F230F4D3600927594 /* AppDelegate.swift in Sources */,
