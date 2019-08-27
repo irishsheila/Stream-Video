@@ -17,7 +17,6 @@ class VideoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupNavBar()
         setupTableView()
         fetchData()
