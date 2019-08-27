@@ -154,22 +154,22 @@ class VideoPlayerControls: UIView {
         
         // label for the length of the video
         container.addSubview(videoLengthLabel)
-        videoLengthLabel.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -8).isActive = true
-        videoLengthLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -2).isActive = true
+        videoLengthLabel.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -12).isActive = true
+        videoLengthLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -12).isActive = true
         videoLengthLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
         videoLengthLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         // label for the current time of the video
         container.addSubview(currentTimeLabel)
-        currentTimeLabel.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 8).isActive = true
-        currentTimeLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -2).isActive = true
+        currentTimeLabel.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 12).isActive = true
+        currentTimeLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -12).isActive = true
         currentTimeLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
         currentTimeLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         // scrubber slider
         container.addSubview(videoSlider)
         videoSlider.rightAnchor.constraint(equalTo: videoLengthLabel.leftAnchor).isActive = true
-        videoSlider.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        videoSlider.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10).isActive = true
         videoSlider.leftAnchor.constraint(equalTo: currentTimeLabel.rightAnchor).isActive = true
         videoSlider.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
