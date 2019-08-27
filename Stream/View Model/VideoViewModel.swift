@@ -12,10 +12,12 @@ struct VideoViewModel {
     
     let name: String
     let url: URL?
+    let detailTextString: String
     
     init(video: Video){
         self.name = video.name
         self.url = URL(string: video.urlString)
+        self.detailTextString = video.description
     }
     
 }

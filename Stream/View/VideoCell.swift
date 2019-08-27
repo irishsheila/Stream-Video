@@ -14,13 +14,14 @@ class VideoCell: UITableViewCell {
         didSet {
             textLabel?.text = videoViewModel.name
             accessoryType = .disclosureIndicator
+            detailTextLabel?.text = videoViewModel.detailTextString
         }
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         contentView.backgroundColor = isHighlighted ? .highlightColor : .white
-        textLabel?.textColor = isHighlighted ? UIColor.white : .mainTextBlue
+        textLabel?.textColor = isHighlighted ? UIColor.white : .darkBlueColor
         detailTextLabel?.textColor = isHighlighted ? .white : .black
     }
     

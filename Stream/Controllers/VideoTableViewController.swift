@@ -24,25 +24,39 @@ class VideoTableViewController: UITableViewController {
     }
     
     // MARK: - View Setup
+    /**
+     Setups up the attibutes of the tableview
+     
+     - Returns: Void
+     */
     fileprivate func setupTableView() {
         tableView.register(VideoCell.self, forCellReuseIdentifier: cellId)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
-        tableView.separatorColor = .mainTextBlue
-        tableView.backgroundColor = UIColor.rgb(r: 12, g: 47, b: 57)
+        tableView.separatorColor = .darkBlueColor
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
         tableView.tableFooterView = UIView()
     }
     
+    /**
+     Sets up the attibutes of the navigation controller
+
+     - Returns: Void
+     */
     fileprivate func setupNavBar() {
         navigationItem.title = "Videos"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = .yellow
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = UIColor.rgb(r: 50, g: 199, b: 242)
+        navigationController?.navigationBar.barTintColor = .redColor
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
+    /**
+     Fetches the data set that will be displayed in the tableview controller
+
+     - Returns: Void
+     */
     fileprivate func fetchData(){
         let videos = Service.shared.makeVideoArray()
         self.videoViewModels = videos.map({return VideoViewModel(video: $0)})
@@ -67,7 +81,13 @@ class VideoTableViewController: UITableViewController {
     }
     
     //MARK: - Segue to video detail
-    
+    /**
+     Presents the Video the user has selected to view
+     
+     - Parameter Video: The VideoViewModel object for the selected video
+     
+     - Returns: Void
+     */
     func showVideoDetail(video: VideoViewModel){
         let videoDetailController = VideoDetailController()
         videoDetailController.video = video
@@ -84,9 +104,19 @@ class CustomNavigationController: UINavigationController {
 }
 
 extension UIColor {
-    static let mainTextBlue = UIColor.rgb(r: 7, g: 71, b: 89)
-    static let highlightColor = UIColor.rgb(r: 50, g: 199, b: 242)
+    static let darkBlueColor = UIColor.rgb(r: 7, g: 71, b: 89)
+    static let redColor = UIColor.rgb(r: 225, g: 38, b: 0)
+    static let highlightColor = UIColor.rgb(r: 225, g: 38, b: 0).withAlphaComponent(0.5)
     
+    /**
+     Shows or hides the control buttons when the user taps the screen.
+     
+     - Parameter r: The values for red
+     - Parameter g: the value for green
+     - Parameter b: the value for blue
+     
+     - Returns: The UIColor for the give rgb valuse
+     */
     static func rgb(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
         return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }

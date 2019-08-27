@@ -6,7 +6,6 @@
 //  Copyright © 2019 Sheila Doherty. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import AVKit
 
@@ -24,6 +23,11 @@ class VideoDetailController: UIViewController {
         return .landscape
     }
     
+    /**
+     Creates & sets up the AVPlayerViewController
+     
+     - Returns: Void
+     */
     func setupPlayer(){
         guard let videoURL = video?.url else {
             return

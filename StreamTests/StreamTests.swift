@@ -20,10 +20,14 @@ class StreamTests: XCTestCase {
     }
 
     func testVidoViewModel(){
-        let video = Video(name: "My Test Video Name", urlString: "http://www.test.com/")
+        let video = Video(name: "My Test Video Name", urlString: "http://www.test.com/", description: "test descpription")
         let videoViewModel = VideoViewModel(video: video)
         XCTAssertEqual(video.name, videoViewModel.name)
-        XCTAssertEqual(video.urlString, videoViewModel.urlString)
+        XCTAssertEqual(video.description, videoViewModel.detailTextString)
+        if let vvmURL = videoViewModel.url {
+            let vvmString = "\(vvmURL)"
+            XCTAssertEqual(video.urlString, vvmString)
+        }
     }
 
 }
