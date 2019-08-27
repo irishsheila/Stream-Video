@@ -11,11 +11,11 @@ import Foundation
 struct VideoViewModel {
     
     let name: String
-    let urlString: String
+    let url: URL?
     
     init(video: Video){
         self.name = video.name
-        self.urlString = video.urlString
+        self.url = URL(string: video.urlString)
     }
     
 }

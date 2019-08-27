@@ -70,18 +70,8 @@ class VideoTableViewController: UITableViewController {
     
     func showVideoDetail(video: VideoViewModel){
         let videoDetailController = VideoDetailController()
-//        videoDetailController.video = video
-//        navigationController?.pushViewController(videoDetailController, animated: true)
-        guard let videoURL = URL(string: video.urlString) else {
-            return
-        }
-        
-        let player = AVPlayer(url: videoURL)
-        videoDetailController.player = player
-        present(videoDetailController, animated: true) {
-            player.play()
-        }
-        
+        videoDetailController.video = video
+        present(videoDetailController, animated: true)
     }
     
 }

@@ -10,17 +10,41 @@ import Foundation
 import UIKit
 import AVKit
 
-class VideoDetailController: AVPlayerViewController {
+class VideoDetailController: UIViewController {
     
-//    var video: VideoViewModel? {
-//        didSet {
-//            navigationItem.title = video?.name
-//            
-//        }
-//    }
+    var video: VideoViewModel?
+    var videoPlayerControls: VideoPlayerControls!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)
+        setupPlayer()
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
+    }
+    
+    func setupPlayer(){
+        guard let videoURL = video?.url else {
+            return
+        }
+        
+        let player = AVPlayer(url: videoURL)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        playerViewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        playerViewController.showsPlaybackControls = false
+        addChild(playerViewController)
+        view.addSubview(playerViewController.view)
+        playerViewController.didMove(toParent: self)
+        
+        playerViewController.player?.play()
+        
+        videoPlayerControls = VideoPlayerControls()
+        videoPlayerControls.avPlayer = player
+        videoPlayerControls.videoDetailController = self
+        view.addSubview(videoPlayerControls)
+        videoPlayerControls.setup(in: view)
+        
     }
 }
